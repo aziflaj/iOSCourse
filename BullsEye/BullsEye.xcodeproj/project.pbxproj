@@ -12,6 +12,10 @@
 		6ADD159022B469AC0055E896 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6ADD158E22B469AC0055E896 /* Main.storyboard */; };
 		6ADD159222B469AD0055E896 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6ADD159122B469AD0055E896 /* Assets.xcassets */; };
 		6ADD159522B469AD0055E896 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6ADD159322B469AD0055E896 /* LaunchScreen.storyboard */; };
+		6ADD15A022B47BE10055E896 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ADD159E22B47BE10055E896 /* AboutViewController.swift */; };
+		6ADD15A222B47E880055E896 /* AboutAuthorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ADD15A122B47E880055E896 /* AboutAuthorViewController.swift */; };
+		6ADE72DD22B512CF00E438AB /* BullsEye.html in Resources */ = {isa = PBXBuildFile; fileRef = 6ADE72DC22B512CE00E438AB /* BullsEye.html */; };
+		6ADE72E022B516DF00E438AB /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ADE72DF22B516DF00E438AB /* WebKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +26,10 @@
 		6ADD159122B469AD0055E896 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6ADD159422B469AD0055E896 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6ADD159622B469AD0055E896 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6ADD159F22B47BE10055E896 /* Base */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Base; path = Base.lproj/AboutViewController.swift; sourceTree = "<group>"; };
+		6ADD15A122B47E880055E896 /* AboutAuthorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutAuthorViewController.swift; sourceTree = "<group>"; };
+		6ADE72DC22B512CE00E438AB /* BullsEye.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = BullsEye.html; sourceTree = "<group>"; };
+		6ADE72DF22B516DF00E438AB /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6ADE72E022B516DF00E438AB /* WebKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +49,7 @@
 			children = (
 				6ADD158922B469AC0055E896 /* BullsEye */,
 				6ADD158822B469AC0055E896 /* Products */,
+				6ADE72DE22B516DF00E438AB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,8 +70,19 @@
 				6ADD159122B469AD0055E896 /* Assets.xcassets */,
 				6ADD159322B469AD0055E896 /* LaunchScreen.storyboard */,
 				6ADD159622B469AD0055E896 /* Info.plist */,
+				6ADD159E22B47BE10055E896 /* AboutViewController.swift */,
+				6ADD15A122B47E880055E896 /* AboutAuthorViewController.swift */,
+				6ADE72DC22B512CE00E438AB /* BullsEye.html */,
 			);
 			path = BullsEye;
+			sourceTree = "<group>";
+		};
+		6ADE72DE22B516DF00E438AB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6ADE72DF22B516DF00E438AB /* WebKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -123,6 +144,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6ADD159522B469AD0055E896 /* LaunchScreen.storyboard in Resources */,
+				6ADE72DD22B512CF00E438AB /* BullsEye.html in Resources */,
 				6ADD159222B469AD0055E896 /* Assets.xcassets in Resources */,
 				6ADD159022B469AC0055E896 /* Main.storyboard in Resources */,
 			);
@@ -135,8 +157,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6ADD15A022B47BE10055E896 /* AboutViewController.swift in Sources */,
 				6ADD158D22B469AC0055E896 /* ViewController.swift in Sources */,
 				6ADD158B22B469AC0055E896 /* AppDelegate.swift in Sources */,
+				6ADD15A222B47E880055E896 /* AboutAuthorViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -157,6 +181,14 @@
 				6ADD159422B469AD0055E896 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		6ADD159E22B47BE10055E896 /* AboutViewController.swift */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6ADD159F22B47BE10055E896 /* Base */,
+			);
+			name = AboutViewController.swift;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
