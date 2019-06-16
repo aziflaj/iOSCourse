@@ -13,7 +13,8 @@ class ChecklistViewController: UITableViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    // Do any additional setup after loading the view.
+    
+    navigationController?.navigationBar.prefersLargeTitles = true
   }
 
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -39,6 +40,19 @@ class ChecklistViewController: UITableViewController {
     }
   }
   
+  override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+    todoList.todos.remove(at: indexPath.row)
+    tableView.deleteRows(at: [indexPath], with: .automatic)
+  }
+  
+  @IBAction func addTodoItemHandler(_ sender: Any?) {
+    let newIndexRow = todoList.todos.count
+    _ = todoList.newTodo()
+    
+    let indexPath = IndexPath(row: newIndexRow, section: 0)
+    tableView.insertRows(at: [indexPath], with: .automatic)
+  }
+  
   func configureText(for cell: UITableViewCell, with item: ChecklistItem) {
     if let label = cell.viewWithTag(1000) as? UILabel {
       label.text = item.text
@@ -47,9 +61,9 @@ class ChecklistViewController: UITableViewController {
   
   func configureCheckmark(for cell: UITableViewCell, with item: ChecklistItem) {
     if item.checked {
-      cell.accessoryType = .none
-    } else {
       cell.accessoryType = .checkmark
+    } else {
+      cell.accessoryType = .none
     }
     
     item.toggleChecked()

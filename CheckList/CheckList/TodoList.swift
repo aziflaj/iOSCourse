@@ -20,4 +20,25 @@ class TodoList {
       ChecklistItem(withText: "Study Design Patterns")
     ]
   }
+  
+  func newTodo() -> ChecklistItem {
+    let item = ChecklistItem(withText: randomTitle(), checked: true)
+    todos.append(item)
+    
+    return item
+  }
+  
+  private func randomTitle() -> String {
+    let titles = [
+      "New todo item",
+      "Generic todo",
+      "Fill me out",
+      "I need something to do",
+      "Much todo about nothing"
+    ]
+    
+    let randomIndex = Int.random(in: 0...(titles.count - 1))
+    
+    return titles[randomIndex]
+  }
 }

@@ -12,9 +12,9 @@ class ChecklistItem {
   var text: String
   var checked: Bool
   
-  init(withText text: String) {
+  init(withText text: String, checked: Bool = false) {
     self.text = text
-    self.checked = false
+    self.checked = checked
   }
   
   func toggleChecked() {

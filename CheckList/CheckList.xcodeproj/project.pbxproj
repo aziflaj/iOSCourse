@@ -14,6 +14,7 @@
 		6A06D35322B5398A00D35013 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A06D35122B5398A00D35013 /* LaunchScreen.storyboard */; };
 		6A06D35B22B685DB00D35013 /* ChecklistItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A06D35A22B685DB00D35013 /* ChecklistItem.swift */; };
 		6A06D35D22B68DBB00D35013 /* TodoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A06D35C22B68DBB00D35013 /* TodoList.swift */; };
+		6A06D35F22B69BD600D35013 /* AddItemTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A06D35E22B69BD600D35013 /* AddItemTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		6A06D35422B5398A00D35013 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6A06D35A22B685DB00D35013 /* ChecklistItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistItem.swift; sourceTree = "<group>"; };
 		6A06D35C22B68DBB00D35013 /* TodoList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoList.swift; sourceTree = "<group>"; };
+		6A06D35E22B69BD600D35013 /* AddItemTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,13 +60,14 @@
 		6A06D34722B5398900D35013 /* CheckList */ = {
 			isa = PBXGroup;
 			children = (
+				6A06D35E22B69BD600D35013 /* AddItemTableViewController.swift */,
 				6A06D34822B5398900D35013 /* AppDelegate.swift */,
-				6A06D34A22B5398900D35013 /* ChecklistViewController.swift */,
-				6A06D34C22B5398900D35013 /* Main.storyboard */,
 				6A06D34F22B5398A00D35013 /* Assets.xcassets */,
-				6A06D35122B5398A00D35013 /* LaunchScreen.storyboard */,
-				6A06D35422B5398A00D35013 /* Info.plist */,
 				6A06D35A22B685DB00D35013 /* ChecklistItem.swift */,
+				6A06D34A22B5398900D35013 /* ChecklistViewController.swift */,
+				6A06D35422B5398A00D35013 /* Info.plist */,
+				6A06D35122B5398A00D35013 /* LaunchScreen.storyboard */,
+				6A06D34C22B5398900D35013 /* Main.storyboard */,
 				6A06D35C22B68DBB00D35013 /* TodoList.swift */,
 			);
 			path = CheckList;
@@ -142,6 +145,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6A06D34B22B5398900D35013 /* ChecklistViewController.swift in Sources */,
+				6A06D35F22B69BD600D35013 /* AddItemTableViewController.swift in Sources */,
 				6A06D35B22B685DB00D35013 /* ChecklistItem.swift in Sources */,
 				6A06D34922B5398900D35013 /* AppDelegate.swift in Sources */,
 				6A06D35D22B68DBB00D35013 /* TodoList.swift in Sources */,
@@ -290,7 +294,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3R7M2CVXV4;
 				INFOPLIST_FILE = CheckList/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -298,6 +304,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = xyz.bluejelly.CheckList;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -307,7 +314,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3R7M2CVXV4;
 				INFOPLIST_FILE = CheckList/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -315,6 +324,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = xyz.bluejelly.CheckList;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
