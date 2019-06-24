@@ -18,27 +18,39 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="ChecklistItem" id="fij-kD-NCB">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="detailDisclosureButton" indentationWidth="10" reuseIdentifier="ChecklistItem" id="fij-kD-NCB" customClass="ChecklistTableViewCell" customModule="CheckList" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fij-kD-NCB" id="VZy-a1-wzO">
-                                    <rect key="frame" x="0.0" y="0.0" width="370" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" tag="1000" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EjJ-V4-dRZ">
-                                            <rect key="frame" x="20" y="11" width="330" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="1001" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="√" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XzH-Se-82N">
+                                            <rect key="frame" x="20" y="12" width="13" height="20"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="1000" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EjJ-V4-dRZ">
+                                            <rect key="frame" x="49" y="11.5" width="285" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="trailing" secondItem="EjJ-V4-dRZ" secondAttribute="trailing" constant="20" symbolic="YES" id="HaC-JO-w1y"/>
-                                        <constraint firstItem="EjJ-V4-dRZ" firstAttribute="top" secondItem="VZy-a1-wzO" secondAttribute="top" priority="750" constant="11" id="NG5-0a-KD7"/>
-                                        <constraint firstAttribute="bottom" secondItem="EjJ-V4-dRZ" secondAttribute="bottom" priority="750" constant="11.5" id="Wfe-zB-yn2"/>
-                                        <constraint firstItem="EjJ-V4-dRZ" firstAttribute="leading" secondItem="VZy-a1-wzO" secondAttribute="leading" constant="20" symbolic="YES" id="Yqu-Fl-l5G"/>
+                                        <constraint firstItem="XzH-Se-82N" firstAttribute="leading" secondItem="VZy-a1-wzO" secondAttribute="leadingMargin" id="W0a-hF-RtI"/>
+                                        <constraint firstItem="EjJ-V4-dRZ" firstAttribute="trailing" secondItem="VZy-a1-wzO" secondAttribute="trailingMargin" id="aeo-Qq-ufQ"/>
+                                        <constraint firstItem="XzH-Se-82N" firstAttribute="centerY" secondItem="VZy-a1-wzO" secondAttribute="centerY" id="cvZ-du-VnQ"/>
+                                        <constraint firstItem="EjJ-V4-dRZ" firstAttribute="centerY" secondItem="VZy-a1-wzO" secondAttribute="centerY" id="q3B-60-XIR"/>
+                                        <constraint firstItem="EjJ-V4-dRZ" firstAttribute="leading" secondItem="XzH-Se-82N" secondAttribute="trailing" constant="16" id="tn0-Tu-eau"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="checkmarkLabel" destination="XzH-Se-82N" id="v6L-g3-Wzj"/>
+                                    <outlet property="todoTextLabel" destination="EjJ-V4-dRZ" id="lzy-Ee-WDy"/>
+                                    <segue destination="h8b-zS-EgI" kind="show" identifier="EditItemSegue" trigger="accessoryAction" id="pg4-pX-Jk0"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -47,22 +59,29 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Checklists" id="v2d-om-Dqo">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="aW3-Wt-g8S">
-                            <connections>
-                                <segue destination="h8b-zS-EgI" kind="show" id="qwv-PK-qb5"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="add" id="aW3-Wt-g8S">
+                                <connections>
+                                    <segue destination="h8b-zS-EgI" kind="show" identifier="AddItemSegue" id="qwv-PK-qb5"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Delete" id="ItF-3A-ciT">
+                                <connections>
+                                    <action selector="deleteItems:" destination="wt3-6M-HUG" id="zCZ-An-XPo"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Ez-fB-2bP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1038" y="-79"/>
+            <point key="canvasLocation" x="1037.68115942029" y="-79.017857142857139"/>
         </scene>
         <!--Title-->
         <scene sceneID="8YF-0e-qGb">
             <objects>
-                <tableViewController id="h8b-zS-EgI" customClass="AddItemTableViewController" customModule="CheckList" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="h8b-zS-EgI" customClass="ItemDetailViewController" customModule="CheckList" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="Ip0-66-Jq1">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -106,7 +125,7 @@
                                 <action selector="handleCancel:" destination="h8b-zS-EgI" id="v8w-pU-nP7"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" enabled="NO" title="Add" id="t5x-MP-PQA">
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" title="Done" id="t5x-MP-PQA">
                             <connections>
                                 <action selector="handleAddingTodoItem:" destination="h8b-zS-EgI" id="8bB-IG-edf"/>
                             </connections>
@@ -140,4 +159,7 @@
             <point key="canvasLocation" x="269.56521739130437" y="-79.017857142857139"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="pg4-pX-Jk0"/>
+    </inferredMetricsTieBreakers>
 </document>

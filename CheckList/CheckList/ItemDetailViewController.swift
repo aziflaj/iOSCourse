@@ -8,7 +8,18 @@
 
 import UIKit
 
-class AddItemTableViewController: UITableViewController {
+protocol ItemDetailControllerDelegate: class {
+  func addItemViewControllerDidCancel(_ controller: ItemDetailViewController)
+  func addItemViewController(_ controller: ItemDetailViewController, didFinishAdding item: ChecklistItem)
+  func addItemViewController(_ controller: ItemDetailViewController, didFinishEditing item: ChecklistItem)
+}
+
+class ItemDetailViewController: UITableViewController {
+  
+  weak var delegate: ItemDetailControllerDelegate?
+  
+  weak var todolist: TodoList?
+  weak var itemToEdit: ChecklistItem?
   
   @IBOutlet weak var addButton: UIBarButtonItem!
   @IBOutlet weak var textfield: UITextField!
@@ -21,6 +32,12 @@ class AddItemTableViewController: UITableViewController {
     super.viewDidLoad()
     
     navigationItem.largeTitleDisplayMode = .never
+    
+    if itemToEdit != nil {
+      title = "Edit Item"
+      textfield.text = itemToEdit?.text
+      addButton.isEnabled = true
+    }
   }
   
   override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
@@ -28,15 +45,21 @@ class AddItemTableViewController: UITableViewController {
   }
   
   @IBAction func handleCancel(_ sender: Any) {
-    navigationController?.popViewController(animated: true)
+    delegate?.addItemViewControllerDidCancel(self)
   }
   
   @IBAction func handleAddingTodoItem(_ sender: Any) {
-    navigationController?.popViewController(animated: true)
+    if let item = itemToEdit, let text = textfield.text {
+      item.text = text
+      delegate?.addItemViewController(self, didFinishEditing: item)
+    } else if let item = todolist?.newTodo(), let text = textfield.text {
+      item.text = text
+      delegate?.addItemViewController(self, didFinishAdding: item)
+    }
   }
 }
 
-extension AddItemTableViewController : UITextFieldDelegate {
+extension ItemDetailViewController : UITextFieldDelegate {
   func textFieldShouldReturn(_ textField: UITextField) -> Bool {
     textfield.resignFirstResponder()
     return false

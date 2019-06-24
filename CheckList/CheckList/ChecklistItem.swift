@@ -8,9 +8,14 @@
 
 import Foundation
 
-class ChecklistItem {
-  var text: String
+class ChecklistItem: NSObject {
+  @objc var text: String
   var checked: Bool
+  
+  override init() {
+    text = ""
+    checked = false
+  }
   
   init(withText text: String, checked: Bool = false) {
     self.text = text
